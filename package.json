@@ -1,0 +1,30 @@
+{
+  "name": "fullstack_blog",
+  "version": "1.0.0",
+  "description": "MEAN stack blog w/ angular 2",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AlejandroPena813/FullStack_Blogg.git"
+  },
+  "keywords": [
+    "MEAN",
+    "Stack",
+    "Angular",
+    "2",
+    "Application"
+  ],
+  "author": "Alejandro Pena",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AlejandroPena813/FullStack_Blogg/issues"
+  },
+  "homepage": "https://github.com/AlejandroPena813/FullStack_Blogg#readme",
+  "dependencies": {
+    "express": "^4.15.4",
+    "mongoose": "^4.11.9"
+  }
+}
