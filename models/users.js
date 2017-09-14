@@ -122,7 +122,7 @@ userSchema.pre('save', function(next) { //=> not supported yet
     });
 });
 
-userSchema.methods.comparePassword = (password) => {//this will compare password hash and return bool, must implement actually logging in
+userSchema.methods.comparePassword = function(password) {//this will compare password hash and return bool, must implement actually logging in
     return bcrypt.compareSync(password, this.password);
 };
 
