@@ -7,7 +7,8 @@ import {tokenNotExpired} from 'angular2-jwt';
 export class AuthService {//exported to register.comp
 
   //this will provide the url for register route
-  domain = "http://localhost:8080/"; //8080 is our node api server, not the angular development server
+  //domain = "http://localhost:8080/"; //8080 is our node api server, not the angular development server
+  domain = "";//above was development
   authToken;
   user;
   options;
