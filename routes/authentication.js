@@ -1,4 +1,4 @@
-const User = require('../models/users');//importing user schema
+const User = require('../models/user');//importing user schema
 const jwt = require('jsonwebtoken');//maintains user login sess?? in login f(x)
 const config = require('../config/database');
 
@@ -157,7 +157,7 @@ module.exports = (router) => {
   router.get('/profile', (req, res) => {
     User.findOne({_id: req.decoded.userId}).select('username email').exec((err, user) => {
       if(err){
-        res.json({ success: false, messages: err });
+        res.json({ success: false, message: err });
       } else {
         if(!user){
           res.json({success: false, message: 'User not found'});
@@ -169,6 +169,24 @@ module.exports = (router) => {
   });
 
 ////////////
+
+router.get('/publicProfile/:username', (req, res) => {
+  if(!req.params.username){ //username above in url, to grab in params
+    res.json({success: false, message: 'No username was provided'});
+  } else{
+    User.findOne({username: req.params.username}).select('username email').exec((err, user) => {
+      if(err){
+        res.json({success: false, message: 'Something went wrong'});
+      } else{
+        if(!user){
+          res.json({success: false, message: 'Username not found'});
+        } else{
+          res.json({success: true, user: user});
+        }
+      }
+    });
+  }
+});
 
   return router; // Return router object to main index.js
 }
